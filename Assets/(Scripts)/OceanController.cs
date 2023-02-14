@@ -5,13 +5,7 @@ using UnityEngine;
 public class OceanController : MonoBehaviour
 {
     public float verticalSpeed;
-    Boundary boundary;
-
-    // Start is called before the first frame update
-    // void Start()
-    // {
-        
-    // }
+    public Boundary boundary;
 
     void FixedUpdate()
     {
@@ -26,7 +20,7 @@ public class OceanController : MonoBehaviour
 
     void CheckBounds()
     {
-        if(transform.position.y <= boundary.bottom)
+        if (transform.position.y <= boundary.bottom)
         {
             ResetObject();
         }
@@ -34,6 +28,6 @@ public class OceanController : MonoBehaviour
 
     void ResetObject()
     {
-        transform.position = new boundary.top;
+        transform.position = new Vector2(0.0f, boundary.top);
     }
 }
