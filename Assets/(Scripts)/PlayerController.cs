@@ -47,12 +47,12 @@ public class PlayerController : MonoBehaviour
     {
         if(other.gameObject.CompareTag("cloud"))
         {
-            print("Collided with cloud");
+            other.gameObject.GetComponent<AudioSource>().Play();
         }
 
         if (other.gameObject.CompareTag("Island"))
         {
-            print("Collided with Island");
+            other.gameObject.GetComponent<AudioSource>().Play();
         }
     }
 }
