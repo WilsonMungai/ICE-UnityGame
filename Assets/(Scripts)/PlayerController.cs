@@ -10,6 +10,7 @@ public class PlayerController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        // reference of type camera in scene
         camera = FindObjectOfType<Camera>();
     }
 
@@ -36,8 +37,8 @@ public class PlayerController : MonoBehaviour
             transform.position = new Vector2(boundary.right, -4.0f);
         }
 
-        // right bounds
-        if (transform.position.x > boundary.left)
+        // left bounds
+        if (transform.position.x < boundary.left)
         {
             transform.position = new Vector2(boundary.left, -4.0f);
         }
@@ -45,14 +46,16 @@ public class PlayerController : MonoBehaviour
 
     public void OnTriggerEnter2D(Collider2D other)
     {
-        if(other.gameObject.CompareTag("cloud"))
+        if(other.gameObject.CompareTag("Cloud"))
         {
             other.gameObject.GetComponent<AudioSource>().Play();
+            print("colliding with cloud");
         }
 
         if (other.gameObject.CompareTag("Island"))
         {
             other.gameObject.GetComponent<AudioSource>().Play();
+            print("colliding with island");
         }
     }
 }
